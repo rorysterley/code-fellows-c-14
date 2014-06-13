@@ -1,0 +1,124 @@
+<script>
+  function Deck() {
+    this.cards = [];
+    this.count = function() {
+      return this.cards.length;
+    }
+    this.init = function() {
+      for (s = 1; s <= 4; s++){
+        for (r = 1; r <= 13; r++) {
+          this.cards.push(new Card(r, s))
+        }
+      }
+    }
+  }
+
+  function Card(rank, suit) {
+    this.rank = rank;
+    this.suit = suit;
+    this.show = function() {
+      switch (this.suit) {
+        case 1:
+          switch (this.rank) {
+            case 1:
+              return "Ace of Hearts"
+              break;
+            case 11:
+              return "Jack of Hearts"
+              break;
+            case 12:
+              return "Queen of Hearts"
+              break;
+            case 13:
+              return "King of Hearts"
+              break;
+            default:
+              return this.rank + " of Hearts"
+              break;
+          }
+          break;
+        case 2:
+          switch (this.rank) {
+            case 1:
+              return "Ace of Spades"
+              break;
+            case 11:
+              return "Jack of Spades"
+              break;
+            case 12:
+              return "Queen of Spades"
+              break;
+            case 13:
+              return "King of Spades"
+              break;
+            default:
+              return this.rank + " of Spades"
+              break;
+          }
+          break;
+        case 3:
+          switch (this.rank) {
+            case 1:
+              return "Ace of Diamonds"
+              break;
+            case 11:
+              return "Jack of Diamonds"
+              break;
+            case 12:
+              return "Queen of Diamonds"
+              break;
+            case 13:
+              return "King of Diamonds"
+              break;
+            default:
+              return this.rank + " of Diamonds"
+              break;
+          }
+          break;
+        case 4:
+          switch (this.rank) {
+            case 1:
+              return "Ace of Clubs"
+              break;
+            case 11:
+              return "Jack of Clubs"
+              break;
+            case 12:
+              return "Queen of Clubs"
+              break;
+            case 13:
+              return "King of Clubs"
+              break;
+            default:
+              return this.rank + " of Clubs"
+              break;
+          }
+          break;
+      }
+    }
+  }
+
+  function Game() {
+    deck = new Deck();
+    deck.init();
+    this.p1 = deal();
+    this.p2 = deal();
+
+    console.log("The player with the highest card wins!")
+    console.log("Player 1: " + this.p1.show());
+    console.log("Player 2: " + this.p2.show());
+
+    function deal() {
+      index = Math.floor(Math.random() * deck.cards.length)
+
+      try {
+        return deck.cards[index]
+      }
+      finally {
+        deck.cards.splice(index, 1)
+      }
+    }
+  }
+
+  hightCard = new Game();
+</script>
