@@ -16,85 +16,13 @@
   function Card(rank, suit) {
     this.rank = rank;
     this.suit = suit;
+    this.showRank = function() {
+      var ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+      return ranks[this.rank - 1]
+    }
     this.show = function() {
-      switch (this.suit) {
-        case 1:
-          switch (this.rank) {
-            case 1:
-              return "Ace of Hearts"
-              break;
-            case 11:
-              return "Jack of Hearts"
-              break;
-            case 12:
-              return "Queen of Hearts"
-              break;
-            case 13:
-              return "King of Hearts"
-              break;
-            default:
-              return this.rank + " of Hearts"
-              break;
-          }
-          break;
-        case 2:
-          switch (this.rank) {
-            case 1:
-              return "Ace of Spades"
-              break;
-            case 11:
-              return "Jack of Spades"
-              break;
-            case 12:
-              return "Queen of Spades"
-              break;
-            case 13:
-              return "King of Spades"
-              break;
-            default:
-              return this.rank + " of Spades"
-              break;
-          }
-          break;
-        case 3:
-          switch (this.rank) {
-            case 1:
-              return "Ace of Diamonds"
-              break;
-            case 11:
-              return "Jack of Diamonds"
-              break;
-            case 12:
-              return "Queen of Diamonds"
-              break;
-            case 13:
-              return "King of Diamonds"
-              break;
-            default:
-              return this.rank + " of Diamonds"
-              break;
-          }
-          break;
-        case 4:
-          switch (this.rank) {
-            case 1:
-              return "Ace of Clubs"
-              break;
-            case 11:
-              return "Jack of Clubs"
-              break;
-            case 12:
-              return "Queen of Clubs"
-              break;
-            case 13:
-              return "King of Clubs"
-              break;
-            default:
-              return this.rank + " of Clubs"
-              break;
-          }
-          break;
-      }
+      var suits = ["Hearts", "Spades", "Diamonds", "Clubs"]
+      return this.showRank() + " of " + suits[this.suit - 1]
     }
   }
 
@@ -109,14 +37,12 @@
     console.log("Player 2: " + this.p2.show());
 
     function deal() {
-      index = Math.floor(Math.random() * deck.cards.length)
+      var index = Math.floor(Math.random() * deck.cards.length)
+      var selectedCard = deck.cards[index];
 
-      try {
-        return deck.cards[index]
-      }
-      finally {
-        deck.cards.splice(index, 1)
-      }
+      deck.cards.splice(index, 1);
+
+      return selectedCard;
     }
   }
 
