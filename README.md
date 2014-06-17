@@ -3,7 +3,7 @@ code-fellows-c-14
 
 GitHub repository for C-14 Intro to Computer Science.
 
-Original author: Rory Sterley
+Original author: Rory Sterley<br>
 Contact: rorysterley@gmail.com
 
 Navigation:
