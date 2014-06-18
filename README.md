@@ -9,4 +9,5 @@ Contact: rorysterley@gmail.com
 Navigation:
 -----------
 
-$ cd Class4/Homework/CardGame.html
+$ cd Class4/Homework/CardGame.html<br>
+$ cd Class5/Homework/CardGameDiagram.jpg
