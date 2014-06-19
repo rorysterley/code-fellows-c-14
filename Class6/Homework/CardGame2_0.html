@@ -1,0 +1,95 @@
+<script>
+  function Card(rank, suit) {
+    this.rank = rank;
+    this.suit = suit;
+    this.showRank = function() {
+      var ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+      return ranks[this.rank - 1]
+    }
+    this.show = function() {
+      var suits = ["Hearts", "Spades", "Diamonds", "Clubs"]
+      return this.showRank() + " of " + suits[this.suit - 1]
+    }
+  }
+
+  function Deck() {
+    this.cards = [];
+    this.count = function() {
+      return this.cards.length;
+    }
+    this.init = function() {
+      for (s = 1; s <= 4; s++){
+        for (r = 1; r <= 13; r++) {
+          this.cards.push(new Card(r, s))
+        }
+      }
+    }
+  }
+
+  function Table() {
+    var p1Score = 0, p2Score = 0, p1Card, p2Card;
+    deck = new Deck();
+    deck.init();
+
+    function deal() {
+      var index = Math.floor(Math.random() * deck.cards.length)
+      var selectedCard = deck.cards[index];
+
+      deck.cards.splice(index, 1);
+
+      return selectedCard;
+    }
+
+    function showRound(winner) {
+      console.log("Player 1: " + p1Card.show() + "\n" + "Player 2: " + p2Card.show())
+
+      switch(winner) {
+        case 1:
+          console.log("Player 1 wins the round!\n");
+          break;
+        case 2:
+          console.log("Player 2 wins the round!\n");
+          break;
+        case 3:
+          console.log("Round is a draw!\n");
+          break;
+      }
+    }
+
+    function showScore() {
+      console.log("Player 1 scored " + p1Score + " points.");
+      console.log("Player 2 scored " + p2Score + " points.");
+    }
+
+    for (var i=0; i < 26; i++) {
+      p1Card = deal();
+      p2Card = deal();
+      
+      if (p1Card.rank > p2Card.rank) {
+        showRound(1);
+        p1Score++
+      }
+      else if (p1Card.rank < p2Card.rank) {
+        showRound(2)
+        p2Score++
+      } 
+      else {
+        showRound(3)
+      }
+    }
+
+    showScore();
+
+    if(p1Score > p2Score) {
+      console.log("Player 1 is the winner!");
+    }
+    else if(p1Score < p2Score) {
+      console.log("Player 2 is the winner!");
+    }
+    else {
+      console.log("The game was a draw.")
+    }
+  }
+
+  Play = Table();
+</script>

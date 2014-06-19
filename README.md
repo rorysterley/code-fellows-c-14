@@ -10,4 +10,5 @@ Navigation:
 -----------
 
 $ cd Class4/Homework/CardGame.html<br>
-$ cd Class5/Homework/CardGameDiagram.jpg
+$ cd Class5/Homework/CardGameDiagram.jpg<br>
+$ cd Class6/Homework/CardGame2_0.html
