@@ -27,9 +27,12 @@
   }
 
   function Table() {
-    var p1Score = 0, p2Score = 0, p1Card, p2Card;
+    var p1Score = 0, p2Score = 0, p1Card, p2Card, queue;
     deck = new Deck();
     deck.init();
+    
+    // queue tracks the order of cards dealt.
+    queue = [];
 
     function deal() {
       var index = Math.floor(Math.random() * deck.cards.length)
@@ -41,7 +44,8 @@
     }
 
     function showRound(winner) {
-      console.log("Player 1: " + p1Card.show() + "\n" + "Player 2: " + p2Card.show())
+      console.log("Player 1: " + p1Card.show());
+      console.log("Player 2: " + p2Card.show());
 
       switch(winner) {
         case 1:
@@ -61,9 +65,20 @@
       console.log("Player 2 scored " + p2Score + " points.");
     }
 
+    function showQueue() {
+      console.log("\nThe order of the deck for this game was:")
+
+      while(queue.length != 0) {
+        var card = queue.shift();
+        console.log(card.show());
+      }
+    }
+
     for (var i=0; i < 26; i++) {
       p1Card = deal();
       p2Card = deal();
+      queue.push(p1Card);
+      queue.push(p2Card);
       
       if (p1Card.rank > p2Card.rank) {
         showRound(1);
@@ -82,12 +97,15 @@
 
     if(p1Score > p2Score) {
       console.log("Player 1 is the winner!");
+      showQueue();
     }
     else if(p1Score < p2Score) {
       console.log("Player 2 is the winner!");
+      showQueue();
     }
     else {
       console.log("The game was a draw.")
+      showQueue();   
     }
   }
 
