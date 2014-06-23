@@ -6,9 +6,6 @@ GitHub repository for C-14 Intro to Computer Science.
 Original author: Rory Sterley<br>
 Contact: rorysterley@gmail.com
 
-Navigation:
------------
 
-$ cd Class4/Homework/CardGame.html<br>
-$ cd Class5/Homework/CardGameDiagram.jpg<br>
-$ cd Class6/Homework/CardGame2_0.html
+Folders laboled Class# contain submited work for the # class.<br>
+The GitExperiments folder is for practice/Experimentation prier to submition.<br>
