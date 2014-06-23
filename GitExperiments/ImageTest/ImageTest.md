@@ -5,7 +5,7 @@ In the world of code, always respect your data-types.
 
 If you:
 
-![Student](/no-idea.png)
+![Student](no-idea.png)
 
 
 Than don't:
