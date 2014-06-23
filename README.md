@@ -8,4 +8,4 @@ Contact: rorysterley@gmail.com
 
 
 Folders laboled Class# contain submited work for the # class.<br>
-The GitExperiments folder is for practice/Experimentation prier to submition.<br>
+The GitExperiments folder is for practice/experimentation prier to submition.<br>
