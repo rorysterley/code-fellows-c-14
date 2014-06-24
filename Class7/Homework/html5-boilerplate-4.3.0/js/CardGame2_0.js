@@ -46,20 +46,14 @@ function Table() {
   function showRound(winner) {
     var roundWinner
 
-    console.log("Player 1: " + p1Card.show());
-    console.log("Player 2: " + p2Card.show());
-
     switch(winner) {
       case 1:
-        console.log("Player 1 wins the round!\n");
         roundWinner = "Player 1 wins the round!";
         break;
       case 2:
-        console.log("Player 2 wins the round!\n");
         roundWinner = "Player 2 wins the round";
         break;
       case 3:
-        console.log("Round is a draw!\n");
         roundWinner = "Round is a draw!"
         break;
     }
@@ -71,21 +65,15 @@ function Table() {
   }
 
   function showScore() {
-    console.log("Player 1 scored " + p1Score + " points.");
-    console.log("Player 2 scored " + p2Score + " points.");
-
     // Displays the final score in the HTML markup
     $("#score").append("Player 1 scored " + p1Score + " points." +
       "<br>" + "Player 2 scored " + p2Score + " points.")
   }
 
   function showQueue() {
-    console.log("\nThe order of the deck for this game was:")
-
     while(queue.length != 0) {
       var card = queue.shift();
-      console.log(card.show());
-
+      
       // Displays the order of the deck in the HTML markup
       $("#deckOrder").append("<li>" + card.show() + "</li>")
     }
@@ -113,23 +101,18 @@ function Table() {
   showScore();
 
   if(p1Score > p2Score) {
-    console.log("Player 1 is the winner!");
     $("#score").append("<br>Player 1 is the winner!");
     showQueue();
   }
   else if(p1Score < p2Score) {
-    console.log("Player 2 is the winner!");
     $("#score").append("<br>Player 2 is the winner!");
     showQueue();
   }
   else {
-    console.log("The game was a draw.")
     $("#score").append("<br>The game was a draw.");
     showQueue();   
   }
 }
-
-//Play = Table();
 
 $("#playButton").click(function() {
   Table();
